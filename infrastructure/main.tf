@@ -7,15 +7,15 @@ provider "azurerm" {
   tenant_id       = var.tenant_id
 }
 
-resource "azurerm_resource_group" "devops_rg" {
+resource "azurerm_resource_group" "devops_r" {
   name     = "devops-project-rg"
   location = "Central India"
 }
 
 resource "azurerm_container_group" "devops_aci" {
   name                = "devops-project-aci"
-  location            = azurerm_resource_group.devops_rg.location
-  resource_group_name = azurerm_resource_group.devops_rg.name
+  location            = azurerm_resource_group.devops_r.location
+  resource_group_name = azurerm_resource_group.devops_r.name
   ip_address_type     = "Public"
   os_type             = "Linux"
 
